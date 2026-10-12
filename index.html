@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M&J Modas</title>
+
+<style>
+:root {
+  --bg: #080B12;
+  --panel: #101827;
+  --card: #121D2E;
+  --gold: #FFD43B;
+  --white: #FFFFFF;
+  --muted: #B5BECC;
+  --border: #29364B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+button, a {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  background: #090D16;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logo {
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--white));
+  color: #080B12;
+  border: 2px solid white;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 16px;
+  box-shadow: 0 0 15px #FFD43B25;
+}
+
+.brand-name {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.brand-name span {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+nav button:hover,
+nav button.active {
+  background: #FFD43B12;
+  color: var(--gold);
+}
+
+.button {
+  display: inline-block;
+  background: linear-gradient(100deg, var(--gold), var(--white));
+  color: #080B12;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #FFD43B25;
+}
+
+.outline {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--gold);
+}
+
+main {
+  min-height: 70vh;
+}
+
+/* CAMBIO DE APARTADOS */
+
+.page {
+  display: none;
+  animation: appear 0.25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* PORTADA */
+
+.hero {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  padding: 65px 7%;
+  background:
+    linear-gradient(90deg, #070A12F5, #070A12A6, #070A1240),
+    url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85");
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 8vw, 78px);
+  line-height: 1.05;
+  margin: 18px 0;
+}
+
+.gold {
+  background: linear-gradient(90deg, var(--gold), var(--white));
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero p {
+  color: #D8DEE8;
+  max-width: 480px;
+  margin-bottom: 25px;
+  font-size: 17px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* CONTENIDO DE LAS SECCIONES */
+
+.section {
+  padding: 55px 6%;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.heading small {
+  color: var(--gold);
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+.heading h1,
+.heading h2 {
+  font-size: clamp(30px, 5vw, 43px);
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.heading p {
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.category-card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 22px;
+  text-align: left;
+  color: white;
+  transition: 0.2s;
+}
+
+.category-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.category-card .symbol {
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.category-card h3 {
+  margin: 8px 0;
+}
+
+.category-card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* PRODUCTOS */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  transition: 0.25s;
+}
+
+.product:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.product img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: var(--panel);
+}
+
+.product-info {
+  padding: 16px;
+}
+
+.tag {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.product h3 {
+  margin: 7px 0;
+  font-size: 17px;
+}
+
+.product p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.product .button {
+  width: 100%;
+  font-size: 12px;
+  padding: 12px 7px;
+}
+
+/* CONTACTO */
+
+.contact-box {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 35px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.contact-box h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  margin: 10px 0;
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.phone {
+  margin-top: 22px;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+  border-top: 1px solid var(--border);
+  background: #06080E;
+  padding: 25px 6%;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+footer .brand {
+  justify-content: center;
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* CELULARES */
+
+@media (max-width: 900px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 12px 4%;
+  }
+
+  .logo {
+    height: 43px;
+    width: 43px;
+    font-size: 14px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  nav button {
+    padding: 8px 5px;
+    font-size: 11px;
+  }
+
+  .hero {
+    min-height: 450px;
+    padding: 45px 6%;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 38px 5%;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products {
+    gap: 11px;
+  }
+
+  .product img {
+    height: 175px;
+  }
+
+  .product-info {
+    padding: 11px;
+  }
+
+  .product h3 {
+    font-size: 14px;
+  }
+
+  .product p {
+    font-size: 12px;
+  }
+
+  .product .button {
+    font-size: 10px;
+  }
+
+  .contact-box {
+    padding: 25px 15px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+  }
+
+  .contact-buttons .button {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand" onclick="showPage('inicio')">
+    <div class="logo">M&J</div>
+    <div class="brand-name">M&J <span>MODAS</span></div>
+  </div>
+
+  <nav>
+    <button class="active" data-page="inicio"
+      onclick="showPage('inicio')">Inicio</button>
+
+    <button data-page="mujer"
+      onclick="showPage('mujer')">Mujer</button>
+
+    <button data-page="hombre"
+      onclick="showPage('hombre')">Hombre</button>
+
+    <button data-page="novedades"
+      onclick="showPage('novedades')">Novedades</button>
+
+    <button data-page="contacto"
+      onclick="showPage('contacto')">Contacto</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="page active" id="inicio">
+  <div class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">MODA · ESTILO · PERSONALIDAD</span>
+
+      <h1>Tu estilo.<br><span class="gold">Tus reglas.</span></h1>
+
+      <p>
+        Descubrí las últimas tendencias en M&J Modas.
+        Encontrá prendas para expresar tu personalidad
+        y crear looks únicos para cada ocasión.
+      </p>
+
+      <div class="actions">
+        <button class="button" onclick="showPage('catalogo')">
+          VER COLECCIÓN ↗
+        </button>
+
+        <button class="button outline"
+          onclick="showPage('contacto')">
+          CONTACTANOS
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="heading">
+      <small>EXPLORÁ M&J MODAS</small>
+      <h2>Encontrá tu próximo look.</h2>
+      <p>Elegí una sección para descubrir distintos estilos.</p>
+    </div>
+
+    <div class="category-grid">
+      <button class="category-card" onclick="showPage('mujer')">
+        <div class="symbol">✦</div>
+        <h3>Moda femenina</h3>
+        <p>Prendas modernas para cada ocasión.</p>
+      </button>
+
+      <button class="category-card" onclick="showPage('hombre')">
+        <div class="symbol">◇</div>
+        <h3>Moda masculina</h3>
+        <p>Looks casuales, urbanos y actuales.</p>
+      </button>
+
+      <button class="category-card" onclick="showPage('novedades')">
+        <div class="symbol">✧</div>
+        <h3>Novedades</h3>
+        <p>Inspiración y tendencias de temporada.</p>
+      </button>
+    </div>
+
+    <button class="button" onclick="showPage('catalogo')">
+      EXPLORAR TODO EL CATÁLOGO
+    </button>
+  </div>
+</section>
+
+<!-- CATÁLOGO GENERAL -->
+<section class="page" id="catalogo">
+  <div class="section">
+    <div class="heading">
+      <small>COLECCIÓN COMPLETA</small>
+      <h1>Catálogo M&J</h1>
+      <p>Explorá nuestros estilos de inspiración y consultá por WhatsApp.</p>
+    </div>
+
+    <div class="products" id="all-products"></div>
+  </div>
+</section>
+
+<!-- MUJER -->
+<section class="page" id="mujer">
+  <div class="section">
+    <div class="heading">
+      <small>COLECCIÓN FEMENINA</small>
+      <h1>Moda para mujer.</h1>
+      <p>Looks modernos, elegantes y casuales para expresar tu estilo.</p>
+    </div>
+
+    <div class="products" id="women-products"></div>
+  </div>
+</section>
+
+<!-- HOMBRE -->
+<section class="page" id="hombre">
+  <div class="section">
+    <div class="heading">
+      <small>COLECCIÓN MASCULINA</small>
+      <h1>Moda para hombre.</h1>
+      <p>Prendas urbanas y actuales para crear tu propio look.</p>
+    </div>
+
+    <div class="products" id="men-products"></div>
+  </div>
+</section>
+
+<!-- NOVEDADES -->
+<section class="page" id="novedades">
+  <div class="section">
+    <div class="heading">
+      <small>RECIÉN LLEGADOS</small>
+      <h1>Novedades de moda.</h1>
+      <p>Descubrí estilos y combinaciones inspirados en las tendencias actuales.</p>
+    </div>
+
+    <div class="products" id="new-products"></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="page" id="contacto">
+  <div class="section">
+    <div class="contact-box">
+      <span class="eyebrow">M&J MODAS</span>
+
+      <h2>¿Buscás tu próximo <span class="gold">look?</span></h2>
+
+      <p>
+        Escribinos para consultar por prendas, talles,
+        colores, precios y disponibilidad.
+      </p>
+
+      <div class="contact-buttons">
+        <a class="button" id="whatsapp-main"
+           href="https://wa.me/595XXXXXXXXX"
+           target="_blank" rel="noopener">
+          WHATSAPP
+        </a>
+
+        <a class="button outline" id="instagram-main"
+           href="https://www.instagram.com/TU_USUARIO/"
+           target="_blank" rel="noopener">
+          INSTAGRAM
+        </a>
+
+        <a class="button outline" id="phone-main"
+           href="tel:+595XXXXXXXXX">
+          LLAMAR
+        </a>
+      </div>
+
+      <div class="phone">
+        Número: <span id="display-phone">Agregá tu número aquí</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand" onclick="showPage('inicio')">
+    <div class="logo">M&J</div>
+    <div class="brand-name">M&J <span>MODAS</span></div>
+  </div>
+
+  <p>Tu estilo, tu esencia, tu moda.</p>
+  <p>© 2026 M&J Modas</p>
+</footer>
+
+<script>
+/* ======================================
+   CONFIGURÁ TUS DATOS DE CONTACTO AQUÍ
+   ====================================== */
+
+const WHATSAPP = "595XXXXXXXXX";
+const INSTAGRAM = "TU_USUARIO";
+
+/*
+  Escribí el teléfono en formato internacional,
+  sin el signo +, espacios ni guiones.
+  Ejemplo de formato: 595981234567
+
+  En INSTAGRAM escribí tu usuario sin @.
+*/
+
+/* CATÁLOGO DE EJEMPLO */
+
+const products = [
+  {
+    name: "Look urbano femenino",
+    category: "MUJER",
+    type: "mujer",
+    image: "photo-1529139574466-a303027c1d8b",
+    description: "Inspiración urbana y moderna."
+  },
+  {
+    name: "Outfit casual",
+    category: "MUJER",
+    type: "mujer",
+    image: "photo-1490481651871-ab68de25d43d",
+    description: "Un estilo versátil para todos los días."
+  },
+  {
+    name: "Estilo de temporada",
+    category: "MUJER",
+    type: "mujer",
+    image: "photo-1483985988355-763728e1935b",
+    description: "Inspiración para renovar tu look."
+  },
+  {
+    name: "Moda contemporánea",
+    category: "MUJER",
+    type: "mujer",
+    image: "photo-1483985988355-763728e1935b",
+    description: "Combinaciones para destacar."
+  },
+  {
+    name: "Look masculino",
+    category: "HOMBRE",
+    type: "hombre",
+    image: "photo-1516257984-b1b4d707412e",
+    description: "Estilo actual y versátil."
+  },
+  {
+    name: "Moda urbana",
+    category: "HOMBRE",
+    type: "hombre",
+    image: "photo-1523398002811-999ca8dec234",
+    description: "Inspiración casual para tu día."
+  },
+  {
+    name: "Estilo casual",
+    category: "HOMBRE",
+    type: "hombre",
+    image: "photo-1618354691373-d851c5c3a990",
+    description: "Un look sencillo y moderno."
+  },
+  {
+    name: "Tendencia actual",
+    category: "NOVEDAD",
+    type: "nuevo",
+    image: "photo-1525507119028-ed4c629a60a3",
+    description: "Inspiración de la nueva temporada."
+  }
+];
+
+/* CAMBIO DE APARTADOS */
+
+function showPage(pageId) {
+  const selected = document.getElementById(pageId);
+
+  if (!selected) return;
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  selected.classList.add("active");
+
+  document.querySelectorAll("nav button").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.page === pageId
+    );
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+/* TARJETAS DE PRODUCTOS */
+
+function productCard(product) {
+  const imageUrl =
+    "https://images.unsplash.com/" +
+    product.image +
+    "?auto=format&fit=crop&w=700&q=85";
+
+  const message = encodeURIComponent(
+    "Hola M&J Modas, quiero consultar por: " + product.name
+  );
+
+  const whatsappUrl = "https://wa.me/" + WHATSAPP +
+    "?text=" + message;
+
+  return `
+    <article class="product">
+      <img src="${imageUrl}"
+           alt="${product.name}"
+           loading="lazy">
+
+      <div class="product-info">
+        <span class="tag">${product.category}</span>
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+
+        <a class="button"
+           href="${whatsappUrl}"
+           target="_blank"
+           rel="noopener">
+          CONSULTAR POR WHATSAPP
+        </a>
+      </div>
+    </article>
+  `;
+}
+
+function renderProducts() {
+  document.getElementById("all-products").innerHTML =
+    products.map(productCard).join("");
+
+  document.getElementById("women-products").innerHTML =
+    products.filter(p => p.type === "mujer")
+      .map(productCard).join("");
+
+  document.getElementById("men-products").innerHTML =
+    products.filter(p => p.type === "hombre")
+      .map(productCard).join("");
+
+  document.getElementById("new-products").innerHTML =
+    products.filter(p => p.type === "nuevo")
+      .map(productCard).join("");
+}
+
+/* DATOS DE CONTACTO */
+
+function setupContact() {
+  const whatsappLink = "https://wa.me/" + WHATSAPP;
+  const instagramLink = "https://www.instagram.com/" +
+    INSTAGRAM + "/";
+  const phoneLink = "tel:+" + WHATSAPP;
+
+  document.getElementById("whatsapp-main").href = whatsappLink;
+  document.getElementById("instagram-main").href = instagramLink;
+  document.getElementById("phone-main").href = phoneLink;
+
+  if (!WHATSAPP.includes("X")) {
+    document.getElementById("display-phone").textContent =
+      "+" + WHATSAPP;
+  }
+}
+
+renderProducts();
+setupContact();
+</script>
+
+</body>
+</html>
