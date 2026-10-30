@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -135,8 +136,6 @@ main {
   min-height: 70vh;
 }
 
-/* CAMBIO DE APARTADOS */
-
 .page {
   display: none;
   animation: appear 0.25s ease;
@@ -202,7 +201,7 @@ main {
   gap: 12px;
 }
 
-/* CONTENIDO DE LAS SECCIONES */
+/* SECCIONES */
 
 .section {
   padding: 55px 6%;
@@ -484,20 +483,11 @@ footer .brand {
   </div>
 
   <nav>
-    <button class="active" data-page="inicio"
-      onclick="showPage('inicio')">Inicio</button>
-
-    <button data-page="mujer"
-      onclick="showPage('mujer')">Mujer</button>
-
-    <button data-page="hombre"
-      onclick="showPage('hombre')">Hombre</button>
-
-    <button data-page="novedades"
-      onclick="showPage('novedades')">Novedades</button>
-
-    <button data-page="contacto"
-      onclick="showPage('contacto')">Contacto</button>
+    <button class="active" data-page="inicio" onclick="showPage('inicio')">Inicio</button>
+    <button data-page="mujer" onclick="showPage('mujer')">Mujer</button>
+    <button data-page="hombre" onclick="showPage('hombre')">Hombre</button>
+    <button data-page="novedades" onclick="showPage('novedades')">Novedades</button>
+    <button data-page="contacto" onclick="showPage('contacto')">Contacto</button>
   </nav>
 </header>
 
@@ -522,8 +512,7 @@ footer .brand {
           VER COLECCIÓN ↗
         </button>
 
-        <button class="button outline"
-          onclick="showPage('contacto')">
+        <button class="button outline" onclick="showPage('contacto')">
           CONTACTANOS
         </button>
       </div>
@@ -630,25 +619,25 @@ footer .brand {
 
       <div class="contact-buttons">
         <a class="button" id="whatsapp-main"
-           href="https://wa.me/595XXXXXXXXX"
+           href="https://wa.me/595991646575"
            target="_blank" rel="noopener">
           WHATSAPP
         </a>
 
         <a class="button outline" id="instagram-main"
-           href="https://www.instagram.com/TU_USUARIO/"
+           href="https://www.instagram.com/mj_modass_?rpxt=MWcwaXN2ZnBnd21pYw=="
            target="_blank" rel="noopener">
           INSTAGRAM
         </a>
 
         <a class="button outline" id="phone-main"
-           href="tel:+595XXXXXXXXX">
+           href="tel:+595991646575">
           LLAMAR
         </a>
       </div>
 
       <div class="phone">
-        Número: <span id="display-phone">Agregá tu número aquí</span>
+        Número: <span id="display-phone">+595 991 646575</span>
       </div>
     </div>
   </div>
@@ -667,20 +656,11 @@ footer .brand {
 </footer>
 
 <script>
-/* ======================================
-   CONFIGURÁ TUS DATOS DE CONTACTO AQUÍ
-   ====================================== */
 
-const WHATSAPP = "595XXXXXXXXX";
-const INSTAGRAM = "TU_USUARIO";
+/* DATOS DE CONTACTO */
 
-/*
-  Escribí el teléfono en formato internacional,
-  sin el signo +, espacios ni guiones.
-  Ejemplo de formato: 595981234567
-
-  En INSTAGRAM escribí tu usuario sin @.
-*/
+const WHATSAPP = "595991646575";
+const INSTAGRAM = "https://www.instagram.com/mj_modass_?rpxt=MWcwaXN2ZnBnd21pYw==";
 
 /* CATÁLOGO DE EJEMPLO */
 
@@ -827,22 +807,18 @@ function renderProducts() {
 
 function setupContact() {
   const whatsappLink = "https://wa.me/" + WHATSAPP;
-  const instagramLink = "https://www.instagram.com/" +
-    INSTAGRAM + "/";
-  const phoneLink = "tel:+" + WHATSAPP;
 
   document.getElementById("whatsapp-main").href = whatsappLink;
-  document.getElementById("instagram-main").href = instagramLink;
-  document.getElementById("phone-main").href = phoneLink;
+  document.getElementById("instagram-main").href = INSTAGRAM;
+  document.getElementById("phone-main").href = "tel:+" + WHATSAPP;
 
-  if (!WHATSAPP.includes("X")) {
-    document.getElementById("display-phone").textContent =
-      "+" + WHATSAPP;
-  }
+  document.getElementById("display-phone").textContent =
+    "+595 991 646575";
 }
 
 renderProducts();
 setupContact();
+
 </script>
 
 </body>
