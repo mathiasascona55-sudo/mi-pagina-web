@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M&J Modas</title>
+<title>M&J MODAS</title>
 
 <style>
 :root {
@@ -65,17 +65,15 @@ header {
 }
 
 .logo {
-  height: 52px;
-  width: 52px;
+  height: 48px;
+  width: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--white));
+  background: linear-gradient(135deg, var(--gold), white);
   color: #080B12;
   border: 2px solid white;
   display: grid;
   place-items: center;
   font-weight: 900;
-  font-size: 16px;
-  box-shadow: 0 0 15px #FFD43B25;
 }
 
 .brand-name {
@@ -91,15 +89,15 @@ header {
 nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 5px;
 }
 
 nav button {
   background: transparent;
   border: none;
   color: var(--muted);
-  padding: 10px;
-  font-size: 13px;
+  padding: 9px 10px;
+  font-size: 12px;
   border-radius: 6px;
 }
 
@@ -111,7 +109,7 @@ nav button.active {
 
 .button {
   display: inline-block;
-  background: linear-gradient(100deg, var(--gold), var(--white));
+  background: linear-gradient(100deg, var(--gold), white);
   color: #080B12;
   border: none;
   border-radius: 8px;
@@ -182,7 +180,7 @@ main {
 }
 
 .gold {
-  background: linear-gradient(90deg, var(--gold), var(--white));
+  background: linear-gradient(90deg, var(--gold), white);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -229,6 +227,8 @@ main {
   color: var(--muted);
   max-width: 620px;
 }
+
+/* CATEGORÍAS */
 
 .category-grid {
   display: grid;
@@ -319,7 +319,7 @@ main {
 
 .product .button {
   width: 100%;
-  font-size: 12px;
+  font-size: 11px;
   padding: 12px 7px;
 }
 
@@ -378,6 +378,14 @@ footer .brand {
 /* CELULARES */
 
 @media (max-width: 900px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
   .products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -389,7 +397,7 @@ footer .brand {
 
 @media (max-width: 600px) {
   header {
-    padding: 12px 4%;
+    padding: 12px 3%;
   }
 
   .logo {
@@ -403,14 +411,13 @@ footer .brand {
   }
 
   nav {
-    order: 3;
     width: 100%;
-    justify-content: space-between;
-    gap: 0;
+    justify-content: center;
+    gap: 3px;
   }
 
   nav button {
-    padding: 8px 5px;
+    padding: 8px 7px;
     font-size: 11px;
   }
 
@@ -486,6 +493,11 @@ footer .brand {
     <button class="active" data-page="inicio" onclick="showPage('inicio')">Inicio</button>
     <button data-page="mujer" onclick="showPage('mujer')">Mujer</button>
     <button data-page="hombre" onclick="showPage('hombre')">Hombre</button>
+    <button data-page="pantalones" onclick="showPage('pantalones')">Pantalones</button>
+    <button data-page="camperas" onclick="showPage('camperas')">Camperas</button>
+    <button data-page="kepis" onclick="showPage('kepis')">Kepis</button>
+    <button data-page="relojes" onclick="showPage('relojes')">Relojes</button>
+    <button data-page="calzados" onclick="showPage('calzados')">Calzados</button>
     <button data-page="novedades" onclick="showPage('novedades')">Novedades</button>
     <button data-page="contacto" onclick="showPage('contacto')">Contacto</button>
   </nav>
@@ -503,13 +515,13 @@ footer .brand {
 
       <p>
         Descubrí las últimas tendencias en M&J Modas.
-        Encontrá prendas para expresar tu personalidad
+        Encontrá prendas y accesorios para expresar tu personalidad
         y crear looks únicos para cada ocasión.
       </p>
 
       <div class="actions">
-        <button class="button" onclick="showPage('catalogo')">
-          VER COLECCIÓN ↗
+        <button class="button" onclick="showPage('novedades')">
+          VER NOVEDADES ↗
         </button>
 
         <button class="button outline" onclick="showPage('contacto')">
@@ -523,7 +535,7 @@ footer .brand {
     <div class="heading">
       <small>EXPLORÁ M&J MODAS</small>
       <h2>Encontrá tu próximo look.</h2>
-      <p>Elegí una sección para descubrir distintos estilos.</p>
+      <p>Elegí una categoría para descubrir nuestros productos.</p>
     </div>
 
     <div class="category-grid">
@@ -539,33 +551,40 @@ footer .brand {
         <p>Looks casuales, urbanos y actuales.</p>
       </button>
 
-      <button class="category-card" onclick="showPage('novedades')">
+      <button class="category-card" onclick="showPage('pantalones')">
         <div class="symbol">✧</div>
-        <h3>Novedades</h3>
-        <p>Inspiración y tendencias de temporada.</p>
+        <h3>Pantalones</h3>
+        <p>Encontrá distintos estilos y modelos.</p>
+      </button>
+
+      <button class="category-card" onclick="showPage('camperas')">
+        <div class="symbol">✦</div>
+        <h3>Camperas</h3>
+        <p>Estilo y comodidad para cada día.</p>
+      </button>
+
+      <button class="category-card" onclick="showPage('kepis')">
+        <div class="symbol">◇</div>
+        <h3>Kepis</h3>
+        <p>Completá tu look con accesorios.</p>
+      </button>
+
+      <button class="category-card" onclick="showPage('relojes')">
+        <div class="symbol">✧</div>
+        <h3>Relojes</h3>
+        <p>Detalles que marcan tu estilo.</p>
+      </button>
+
+      <button class="category-card" onclick="showPage('calzados')">
+        <div class="symbol">✦</div>
+        <h3>Calzados</h3>
+        <p>Modelos para completar tu outfit.</p>
       </button>
     </div>
-
-    <button class="button" onclick="showPage('catalogo')">
-      EXPLORAR TODO EL CATÁLOGO
-    </button>
   </div>
 </section>
 
-<!-- CATÁLOGO GENERAL -->
-<section class="page" id="catalogo">
-  <div class="section">
-    <div class="heading">
-      <small>COLECCIÓN COMPLETA</small>
-      <h1>Catálogo M&J</h1>
-      <p>Explorá nuestros estilos de inspiración y consultá por WhatsApp.</p>
-    </div>
-
-    <div class="products" id="all-products"></div>
-  </div>
-</section>
-
-<!-- MUJER -->
+<!-- CATÁLOGO MUJER -->
 <section class="page" id="mujer">
   <div class="section">
     <div class="heading">
@@ -573,12 +592,11 @@ footer .brand {
       <h1>Moda para mujer.</h1>
       <p>Looks modernos, elegantes y casuales para expresar tu estilo.</p>
     </div>
-
     <div class="products" id="women-products"></div>
   </div>
 </section>
 
-<!-- HOMBRE -->
+<!-- CATÁLOGO HOMBRE -->
 <section class="page" id="hombre">
   <div class="section">
     <div class="heading">
@@ -586,8 +604,67 @@ footer .brand {
       <h1>Moda para hombre.</h1>
       <p>Prendas urbanas y actuales para crear tu propio look.</p>
     </div>
-
     <div class="products" id="men-products"></div>
+  </div>
+</section>
+
+<!-- PANTALONES -->
+<section class="page" id="pantalones">
+  <div class="section">
+    <div class="heading">
+      <small>COLECCIÓN M&J</small>
+      <h1>Pantalones.</h1>
+      <p>Jeans, joggers, cargos y distintos estilos para combinar.</p>
+    </div>
+    <div class="products" id="pants-products"></div>
+  </div>
+</section>
+
+<!-- CAMPERAS -->
+<section class="page" id="camperas">
+  <div class="section">
+    <div class="heading">
+      <small>COLECCIÓN M&J</small>
+      <h1>Camperas y abrigos.</h1>
+      <p>Encontrá prendas cómodas y modernas para completar tu look.</p>
+    </div>
+    <div class="products" id="jackets-products"></div>
+  </div>
+</section>
+
+<!-- KEPIS -->
+<section class="page" id="kepis">
+  <div class="section">
+    <div class="heading">
+      <small>ACCESORIOS</small>
+      <h1>Kepis.</h1>
+      <p>Distintos modelos para darle personalidad a tu estilo.</p>
+    </div>
+    <div class="products" id="caps-products"></div>
+  </div>
+</section>
+
+<!-- RELOJES -->
+<section class="page" id="relojes">
+  <div class="section">
+    <div class="heading">
+      <small>ACCESORIOS</small>
+      <h1>Relojes.</h1>
+      <p>Detalles elegantes y modernos para cada ocasión.</p>
+    </div>
+    <div class="products" id="watches-products"></div>
+  </div>
+</section>
+
+<!-- CALZADOS -->
+<section class="page" id="calzados">
+  <div class="section">
+    <div class="heading">
+      <small>COLECCIÓN M&J</small>
+      <h1>Calzados.</h1>
+      <p>Descubrí modelos casuales y urbanos para tu día a día.</p>
+    </div>
+    <div class="products" id="shoes-products"></div>
   </div>
 </section>
 
@@ -596,10 +673,9 @@ footer .brand {
   <div class="section">
     <div class="heading">
       <small>RECIÉN LLEGADOS</small>
-      <h1>Novedades de moda.</h1>
-      <p>Descubrí estilos y combinaciones inspirados en las tendencias actuales.</p>
+      <h1>Novedades.</h1>
+      <p>Descubrí estilos y productos destacados de M&J MODAS.</p>
     </div>
-
     <div class="products" id="new-products"></div>
   </div>
 </section>
@@ -613,7 +689,7 @@ footer .brand {
       <h2>¿Buscás tu próximo <span class="gold">look?</span></h2>
 
       <p>
-        Escribinos para consultar por prendas, talles,
+        Escribinos para consultar por productos, talles,
         colores, precios y disponibilidad.
       </p>
 
@@ -662,7 +738,7 @@ footer .brand {
 const WHATSAPP = "595991646575";
 const INSTAGRAM = "https://www.instagram.com/mj_modass_?rpxt=MWcwaXN2ZnBnd21pYw==";
 
-/* CATÁLOGO DE EJEMPLO */
+/* PRODUCTOS DE EJEMPLO */
 
 const products = [
   {
@@ -670,7 +746,8 @@ const products = [
     category: "MUJER",
     type: "mujer",
     image: "photo-1529139574466-a303027c1d8b",
-    description: "Inspiración urbana y moderna."
+    description: "Inspiración urbana y moderna.",
+    isNew: true
   },
   {
     name: "Outfit casual",
@@ -678,13 +755,6 @@ const products = [
     type: "mujer",
     image: "photo-1490481651871-ab68de25d43d",
     description: "Un estilo versátil para todos los días."
-  },
-  {
-    name: "Estilo de temporada",
-    category: "MUJER",
-    type: "mujer",
-    image: "photo-1483985988355-763728e1935b",
-    description: "Inspiración para renovar tu look."
   },
   {
     name: "Moda contemporánea",
@@ -698,7 +768,8 @@ const products = [
     category: "HOMBRE",
     type: "hombre",
     image: "photo-1516257984-b1b4d707412e",
-    description: "Estilo actual y versátil."
+    description: "Estilo actual y versátil.",
+    isNew: true
   },
   {
     name: "Moda urbana",
@@ -708,18 +779,77 @@ const products = [
     description: "Inspiración casual para tu día."
   },
   {
-    name: "Estilo casual",
-    category: "HOMBRE",
-    type: "hombre",
-    image: "photo-1618354691373-d851c5c3a990",
-    description: "Un look sencillo y moderno."
+    name: "Jeans casual",
+    category: "PANTALONES",
+    type: "pantalones",
+    image: "photo-1542272604-787c3835535d",
+    description: "Un clásico para combinar."
   },
   {
-    name: "Tendencia actual",
-    category: "NOVEDAD",
-    type: "nuevo",
-    image: "photo-1525507119028-ed4c629a60a3",
-    description: "Inspiración de la nueva temporada."
+    name: "Pantalón urbano",
+    category: "PANTALONES",
+    type: "pantalones",
+    image: "photo-1473966968600-fa801b869a1a",
+    description: "Estilo cómodo y moderno.",
+    isNew: true
+  },
+  {
+    name: "Campera moderna",
+    category: "CAMPERAS",
+    type: "camperas",
+    image: "photo-1551028719-00167b16eac5",
+    description: "Un diseño para completar tu outfit."
+  },
+  {
+    name: "Campera casual",
+    category: "CAMPERAS",
+    type: "camperas",
+    image: "photo-1591047139829-d91aecb6caea",
+    description: "Comodidad y estilo."
+  },
+  {
+    name: "Kepi urbano",
+    category: "KEPIS",
+    type: "kepis",
+    image: "photo-1588850561407-ed78c282e89b",
+    description: "Un accesorio para tu look."
+  },
+  {
+    name: "Kepi clásico",
+    category: "KEPIS",
+    type: "kepis",
+    image: "photo-1521369909029-2afed882baee",
+    description: "Un estilo para todos los días."
+  },
+  {
+    name: "Reloj elegante",
+    category: "RELOJES",
+    type: "relojes",
+    image: "photo-1524592094714-0f0654e20314",
+    description: "Un detalle que marca la diferencia.",
+    isNew: true
+  },
+  {
+    name: "Reloj moderno",
+    category: "RELOJES",
+    type: "relojes",
+    image: "photo-1523275335684-37898b6baf30",
+    description: "Diseño moderno y versátil."
+  },
+  {
+    name: "Zapatillas urbanas",
+    category: "CALZADOS",
+    type: "calzados",
+    image: "photo-1542291026-7eec264c27ff",
+    description: "Comodidad para todos los días.",
+    isNew: true
+  },
+  {
+    name: "Calzado casual",
+    category: "CALZADOS",
+    type: "calzados",
+    image: "photo-1549298916-b41d501d3772",
+    description: "Un modelo para completar tu estilo."
   }
 ];
 
@@ -761,8 +891,8 @@ function productCard(product) {
     "Hola M&J Modas, quiero consultar por: " + product.name
   );
 
-  const whatsappUrl = "https://wa.me/" + WHATSAPP +
-    "?text=" + message;
+  const whatsappUrl =
+    "https://wa.me/" + WHATSAPP + "?text=" + message;
 
   return `
     <article class="product">
@@ -786,34 +916,45 @@ function productCard(product) {
   `;
 }
 
+/* MOSTRAR PRODUCTOS */
+
 function renderProducts() {
-  document.getElementById("all-products").innerHTML =
-    products.map(productCard).join("");
+  const categories = {
+    "women-products": "mujer",
+    "men-products": "hombre",
+    "pants-products": "pantalones",
+    "jackets-products": "camperas",
+    "caps-products": "kepis",
+    "watches-products": "relojes",
+    "shoes-products": "calzados"
+  };
 
-  document.getElementById("women-products").innerHTML =
-    products.filter(p => p.type === "mujer")
-      .map(productCard).join("");
-
-  document.getElementById("men-products").innerHTML =
-    products.filter(p => p.type === "hombre")
-      .map(productCard).join("");
+  Object.entries(categories).forEach(([elementId, type]) => {
+    document.getElementById(elementId).innerHTML =
+      products
+        .filter(product => product.type === type)
+        .map(productCard)
+        .join("");
+  });
 
   document.getElementById("new-products").innerHTML =
-    products.filter(p => p.type === "nuevo")
-      .map(productCard).join("");
+    products
+      .filter(product => product.isNew)
+      .map(productCard)
+      .join("");
 }
 
-/* DATOS DE CONTACTO */
+/* CONFIGURAR CONTACTO */
 
 function setupContact() {
-  const whatsappLink = "https://wa.me/" + WHATSAPP;
+  document.getElementById("whatsapp-main").href =
+    "https://wa.me/" + WHATSAPP;
 
-  document.getElementById("whatsapp-main").href = whatsappLink;
-  document.getElementById("instagram-main").href = INSTAGRAM;
-  document.getElementById("phone-main").href = "tel:+" + WHATSAPP;
+  document.getElementById("instagram-main").href =
+    INSTAGRAM;
 
-  document.getElementById("display-phone").textContent =
-    "+595 991 646575";
+  document.getElementById("phone-main").href =
+    "tel:+" + WHATSAPP;
 }
 
 renderProducts();
